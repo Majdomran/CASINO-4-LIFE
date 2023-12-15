@@ -16,12 +16,16 @@ def deposit_money(amount):
 
 def main():
     while True:
-        user_input = input("Type 'show balance' to check your bank balance or 'exit' to quit: ")
+        user_input = input("""
+Skriv 'show balance' för att visa din ballance
+Skriv 'backa' för att gå tillbacka 
+                    
+                           """)
 
         if user_input.lower() == 'show balance':
             show_bank_balance()
-        elif user_input.lower() == 'exit':
-            break
+        elif user_input.lower() == 'backa':
+            show_main()
         else:
             print("Invalid command. Please type 'show balance' or 'exit'.")
 
