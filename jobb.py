@@ -1,13 +1,13 @@
 import threading
 import time
-from bankkonto import deposit_money  # Import the deposit_money function from bank.py
+from bankkonto import deposit_money
 import subprocess
 import os
 
 def show_main():
     subprocess.run([os.sys.executable, 'main.py'])
 
-earning_rate_per_second = 0.1  # Adjust the earning rate as needed
+earning_rate_per_second = 0.1
 total_earned = 0.0
 afk_started = False
 
@@ -15,7 +15,7 @@ def earn_money_while_afk():
     global total_earned
     while afk_started:
         total_earned += earning_rate_per_second
-        deposit_money(earning_rate_per_second)  # Deposit the earned money to the bank
+        deposit_money(earning_rate_per_second)
         time.sleep(1)
 
 def main():
