@@ -32,7 +32,7 @@ def räkna_poäng(hand): # här räknar poängen för varje kort i handen
     return poäng
 
 
-def visa_hand(hand):
+def visa_hand(hand): # här visas vilka kort som 
     for kort in hand:
         print(f"{kort['nummer']} av {kort['färg']}")
 
@@ -52,21 +52,21 @@ def blackjack():
         visa_hand(spelare_hand)
         print(f"Poäng: {spelare_poäng}")
 
-        if spelare_poäng == 21:
+        if spelare_poäng == 21: # om spelare pöäng är exkt 21 blir de blackjack 
             print("Grattis!, Du har Blackjack!")
-            break
-        elif spelare_poäng > 21:
+            break # Sen sluta spelet
+        elif spelare_poäng > 21: # om spelare pöäng är mer än 21 blir de ett förlöst.
             print("Du har förlorat. Över 21 poäng.")
-            break
+            break 
 
-        val = input("Vill du ta ett till kort? (ja/nej): ").lower()
+        val = input("Vill du ta ett till kort? (ja/nej): ").lower() # här frågar vill om spelare vill ta mer kort eller inte 
 
-        if val == 'ja':
+        if val == 'ja': # om spelare säger ja plusa vi kort han här redan.
             spelare_hand.append(kortlek.pop())
         else:
             break
 
-    while dator_poäng < 17:
+    while dator_poäng < 17: # här säger vi att om dator ska ta mer om de här mindre än 17.
         dator_hand.append(kortlek.pop())
         dator_poäng = räkna_poäng(dator_hand)
 
@@ -74,13 +74,13 @@ def blackjack():
     visa_hand(dator_hand)
     print(f"Datorns poäng: {dator_poäng}")
 
-    if dator_poäng > 21:
+    if dator_poäng > 21: # om dator här mer än 21 så skriver de som stå under.
         print("Datorn har över 21 poäng. Du vinner!")
-    elif spelare_poäng > dator_poäng:
+    elif spelare_poäng > dator_poäng:# om spelare ha mer än dator men inte mellan än 21 så vinner spelare.
         print("Grattis! Du vinner!")
-    elif spelare_poäng < dator_poäng:
+    elif spelare_poäng < dator_poäng:# om spelare ha mindre än dator och dator ha mindre än 21 så vinner dator
         print("Du förlorar. Datorn vinner.")
-    else:
+    else:# om badå spelare och dator få samma blir det oavgjort.
         print("Det blev oavgjort.")
 
 if __name__ == "__main__":
